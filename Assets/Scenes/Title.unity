@@ -122,6 +122,90 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &8444166
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 113068552}
+    m_Modifications:
+    - target: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.93340015
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.0601122
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.46307337
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793035568592730139, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      propertyPath: m_Name
+      value: GameConteiner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7793035568592730139, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8444169}
+  m_SourcePrefab: {fileID: 100100000, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+--- !u!4 &8444167 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3147903211839246287, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+  m_PrefabInstance: {fileID: 8444166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8444168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7793035568592730139, guid: d81d13a3642e8db488ac71d25f11a521, type: 3}
+  m_PrefabInstance: {fileID: 8444166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8444169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8444168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d21d6db6084b24c9aeb55117f4841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageConteiner: {fileID: 0}
+  playerConteiner: {fileID: 0}
 --- !u!1 &20224190
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingameManager: {fileID: 0}
   inputController: {fileID: 0}
+  dataConteiner: {fileID: 8444169}
   player: {fileID: 1896107925}
 --- !u!4 &113068552
 Transform:
@@ -329,6 +414,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1896107926}
+  - {fileID: 8444167}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &113068554

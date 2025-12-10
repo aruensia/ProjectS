@@ -44,6 +44,15 @@ public class OutgameManager : MonoBehaviour
         SetupPlayerSihp();
         Debug.Log(player.playerData);
     }
+
+    void CheckStageCount()
+    {
+        if(GameDirector.Instance.dataConteiner.stageCount != 0)
+        {
+            GameDirector.Instance.dataConteiner.stageCount++;
+        }
+    }
+
     public void CurrentStageDataSend(Stage stage)
     {
         player.InitStageData(stage);

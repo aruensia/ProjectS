@@ -5,8 +5,9 @@ using UnityEngine;
 public class GameDirector : MonoBehaviour
 {
     static GameDirector instance;
-    public OutgameManager ingameManager;
+    public OutgameManager outgameManager;
     public InputController inputController;
+    public DataConteiner dataConteiner;
     public PlayerData playerData = new PlayerData();
     public Player player;
 
@@ -44,4 +45,5 @@ public class GameDirector : MonoBehaviour
         inputController.ingameManager = _ingamemanager;
     }
 
+   
 }

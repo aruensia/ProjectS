@@ -16,6 +16,6 @@ public class Card : IUseble
 
     void IUseble.Use()
     {
-        GameDirector.Instance.ingameManager.cardController.Discard(this);
+        GameDirector.Instance.outgameManager.cardController.Discard(this);
     }
 }

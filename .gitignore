@@ -97,3 +97,7 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+#Nubbbula Skyboxes
+/[Nn]ebula Skyboxes
+/[Nn]ebula Skyboxes.meta

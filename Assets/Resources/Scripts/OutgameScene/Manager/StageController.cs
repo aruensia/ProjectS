@@ -253,7 +253,6 @@ public class StageController : MonoBehaviour
     {
         if(stage.stageClearInfo == false)
         {
-            stage.stageClearInfo = true;
             SceneManager.LoadScene("InGame");
 
         }

@@ -12,5 +12,4 @@ public class TitleManager : MonoBehaviour
     {
         SceneManager.LoadScene("OutGame");
     }
-
 }

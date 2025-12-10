@@ -121,3 +121,4 @@ MonoBehaviour:
   stageType: 0
   nextStage: []
   previousStage: {fileID: 0}
+  stageClearInfo: 0

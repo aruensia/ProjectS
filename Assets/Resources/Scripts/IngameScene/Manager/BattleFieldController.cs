@@ -9,6 +9,7 @@ public class BattleFieldController : MonoBehaviour
 
     public void StageEnter()
     {
+
         SceneManager.LoadScene("OutGame");
     }
 }
