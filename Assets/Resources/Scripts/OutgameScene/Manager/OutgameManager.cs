@@ -19,8 +19,7 @@ public class OutgameManager : MonoBehaviour
     public Vector3 startPos;
     public GameObject playerGameObj;
 
-
-    public int turnCount; //턴 카운트
+    public int turnCount = 0; //턴 카운트
 
     public List<Card> userDeck = new List<Card>();  // 뽑을 카드덱
     public List<Card> discradDeck = new List<Card>();  // 버린 카드덱
@@ -32,7 +31,7 @@ public class OutgameManager : MonoBehaviour
         stageController = gameController.GetComponent<StageController>();
         buffController = gameController.GetComponent<BuffController>();
         cardController = gameController.GetComponent<CardController>();
-        GameDirector.Instance.InitIngameManager(this);
+        GameDirector.Instance.InitOutgameManager(this);
     }
 
     private void Start()
@@ -45,11 +44,20 @@ public class OutgameManager : MonoBehaviour
         Debug.Log(player.playerData);
     }
 
+    private void OnEnable()
+    {
+        CheckStageCount();
+    }
+
     void CheckStageCount()
     {
-        if(GameDirector.Instance.dataConteiner.stageCount != 0)
+        if (turnCount >= 10)
         {
-            GameDirector.Instance.dataConteiner.stageCount++;
+            turnCount = 10;
+        }
+        else
+        {
+            turnCount++;
         }
     }
 
@@ -92,6 +100,8 @@ public class OutgameManager : MonoBehaviour
 
     public void StageEnter(Stage stage)
     {
+        GameDirector.Instance.dataConteiner.DataInitForConteiner(player,turnCount, stage.stageAddressNumber);
         stageController.StageMove(stage);
     }
+
 }

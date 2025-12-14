@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerData playerData;
+    public int life;
 
     public void Init(PlayerData _playerData)
     {

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class DataConteiner : MonoBehaviour
 {
-    public Stage stageConteiner;
+    public bool stageClearInfo = false;
+    public int stageAddressNumber;
     public Player playerConteiner;
-    public int stageCount = 0;
+    public int turnCount = 0;
 
-    public void DataInitForConteiner(Stage stage, Player player)
+    public void DataInitForConteiner(Player player, int _turnCount, int _stageAddressNumber)
     {
-        stageConteiner = stage;
         playerConteiner = player;
+        turnCount = _turnCount;
+        stageAddressNumber = _stageAddressNumber;
     }
 }

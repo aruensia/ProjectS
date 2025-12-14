@@ -40,9 +40,9 @@ public class GameDirector : MonoBehaviour
         Debug.Log(player.playerData);
     }
 
-    public void InitIngameManager(OutgameManager _ingamemanager)
+    public void InitOutgameManager(OutgameManager _ingamemanager)
     {
-        inputController.ingameManager = _ingamemanager;
+        inputController.outgameManager = _ingamemanager;
     }
 
    

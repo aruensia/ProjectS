@@ -22,9 +22,9 @@ public class StageController : MonoBehaviour
 
 
     List<StageType> stageCounter = new List<StageType> {StageType.normal, StageType.normal, StageType.normal, StageType.elite, StageType.normal,StageType.normal,StageType.normal, StageType.shop,StageType.normal,StageType.boss};
-    int battleInStageCount = 3;
-    int totalStageCount = 10;
-    int count = 0;
+    int battleInStageCount = 3; //한 스테이지에서 유저가 고를 수 있는 스테이지 갯수
+    int totalStageCount = 10;  //유저가 총 몇번 스테이지를 골라야 하는지에 대한 인카운트 갯수
+    int count = 0; // 스테이지 0 타입 분리값
 
     public InputField inpufield;
 
@@ -54,6 +54,9 @@ public class StageController : MonoBehaviour
                 float tempY = (initY - j);
 
                 tempPlent.transform.position = new Vector3(tempX, tempY, 0);
+                tempPlent.GetComponent<Stage>().stageAddressNumber = j;
+
+                //tempPlent.gameObject.SetActive(false);
 
             }
         }

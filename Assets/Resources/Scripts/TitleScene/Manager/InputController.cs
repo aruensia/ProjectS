@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class InputController : MonoBehaviour, IPointerClickHandler
 {
-    public OutgameManager ingameManager;
+    public OutgameManager outgameManager;
 
     RaycastHit raycastHit;
 
@@ -47,7 +47,7 @@ public class InputController : MonoBehaviour, IPointerClickHandler
 
                     var stage = raycastHit.transform.gameObject.GetComponent<Stage>();
                     SelectStage(stage);
-                    ingameManager.StageEnter(stage);
+                    outgameManager.StageEnter(stage);
                     Debug.Log("스테이지");
                     break;
 
@@ -61,6 +61,6 @@ public class InputController : MonoBehaviour, IPointerClickHandler
 
     public void SelectStage(Stage stage)
     {
-        ingameManager.CurrentStageDataSend(stage);
+        outgameManager.CurrentStageDataSend(stage);
     }
 }

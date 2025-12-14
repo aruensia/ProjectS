@@ -19,25 +19,20 @@ public class IngameManager : MonoBehaviour
         dataConteiner = GameDirector.Instance.dataConteiner;
     }
 
-    private void Start()
-    {
-        stage = dataConteiner.stageConteiner;
-    }
 
     public void ExitStageData()
     {
-        dataConteiner.stageConteiner = stage;
-        dataConteiner.playerConteiner = player;
+        dataConteiner.stageClearInfo = true;
     }
 
     public void StageExitBtn()
     {
-        stage.stageClearInfo = true;
         battleFieldController.StageEnter();
     }
 
     private void OnDisable()
     {
+        dataConteiner.turnCount++;
         ExitStageData();
     }
 }
