@@ -122,3 +122,6 @@ MonoBehaviour:
   nextStage: []
   previousStage: {fileID: 0}
   stageClearInfo: 0
+  stageAddressNumber: 0
+  clearStageMaterial: {fileID: 2100000, guid: db642753ff786624bbf7d517b513626f, type: 2}
+  defaultStageMaterial: {fileID: 2100000, guid: 99ff3c6a02d42dc4ba143eda52b946b1, type: 2}

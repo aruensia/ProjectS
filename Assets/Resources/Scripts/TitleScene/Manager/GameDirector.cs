@@ -11,6 +11,8 @@ public class GameDirector : MonoBehaviour
     public PlayerData playerData = new PlayerData();
     public Player player;
 
+    public bool stageSettingIsComplete = false;
+
     //GameDirector의 생성자로써, 게임에 영향을 주는 클래스는 instance를 통해서만 접근할 수 있음.
     public static GameDirector Instance
     {

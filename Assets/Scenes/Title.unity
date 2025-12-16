@@ -204,8 +204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d21d6db6084b24c9aeb55117f4841d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageConteiner: {fileID: 0}
+  stageClearInfo: 0
+  stageAddressNumber: 0
   playerConteiner: {fileID: 0}
+  turnCount: 1
 --- !u!1 &20224190
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482a2397edbf9ae4ca2325bde7fe9402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingameManager: {fileID: 0}
+  outgameManager: {fileID: 0}
   inputController: {fileID: 0}
   dataConteiner: {fileID: 8444169}
   player: {fileID: 1896107925}
@@ -453,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690d0fdc0b5eaaf42894d05688900d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingameManager: {fileID: 0}
+  outgameManager: {fileID: 0}
 --- !u!1 &163671797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,7 +2059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690d0fdc0b5eaaf42894d05688900d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingameManager: {fileID: 0}
+  outgameManager: {fileID: 0}
 --- !u!1 &1702857648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2349,6 +2351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b18d05522ea3144792c485352ae0416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 0
 --- !u!4 &1896107926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3566331252934212188, guid: a299795ef7d90c44e8bf6629e18f64b9, type: 3}

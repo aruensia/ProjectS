@@ -9,14 +9,19 @@ public class IngameManager : MonoBehaviour
     DataConteiner dataConteiner;
     BattleFieldController battleFieldController;
     public Button stageExitBtn;
+    int turnCount;
 
-    public Stage stage;
     public Player player;
 
     private void Awake()
     {
         battleFieldController = GetComponent<BattleFieldController>();
         dataConteiner = GameDirector.Instance.dataConteiner;
+    }
+
+    private void Start()
+    {
+        turnCount = dataConteiner.turnCount;
     }
 
 
@@ -33,6 +38,7 @@ public class IngameManager : MonoBehaviour
     private void OnDisable()
     {
         dataConteiner.turnCount++;
+        Debug.Log("인게임 나갈때 턴값 : " + dataConteiner.turnCount);
         ExitStageData();
     }
 }

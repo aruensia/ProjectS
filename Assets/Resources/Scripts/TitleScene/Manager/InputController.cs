@@ -46,8 +46,9 @@ public class InputController : MonoBehaviour, IPointerClickHandler
                 case "Stage":
 
                     var stage = raycastHit.transform.gameObject.GetComponent<Stage>();
-                    SelectStage(stage);
-                    outgameManager.StageEnter(stage);
+                    StageEnterCheck(stage);
+                    //SelectStage(stage);
+                    //outgameManager.StageEnter(stage);
                     Debug.Log("스테이지");
                     break;
 
@@ -56,6 +57,19 @@ public class InputController : MonoBehaviour, IPointerClickHandler
                     break;
 
             }
+        }
+    }
+
+    public void StageEnterCheck(Stage stage)
+    {
+        if(stage.stageEnterValue == false)
+        {
+            return;
+        }
+        else
+        {
+            SelectStage(stage);
+            outgameManager.StageEnter(stage);
         }
     }
 

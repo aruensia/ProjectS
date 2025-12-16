@@ -15,6 +15,7 @@ public class Stage : MonoBehaviour
     public List<Stage> nextStage;
     public Stage previousStage;
     public bool stageClearInfo = false;
+    public bool stageEnterValue = false;
     public int stageAddressNumber;
 
     public Ship enemyship;
