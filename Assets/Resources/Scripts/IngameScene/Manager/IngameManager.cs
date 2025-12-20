@@ -9,7 +9,9 @@ public class IngameManager : MonoBehaviour
     DataConteiner dataConteiner;
     BattleFieldController battleFieldController;
     public Button stageExitBtn;
+    public GameObject ingameStageOjb;
     int turnCount;
+    bool clearResult;
 
     public Player player;
 
@@ -21,9 +23,36 @@ public class IngameManager : MonoBehaviour
 
     private void Start()
     {
-        turnCount = dataConteiner.turnCount;
+        turnCount = dataConteiner.TurnCount;
+        ingameStageOjb = dataConteiner.stageObj;
+        StageOjbOff();
+        LinesOff();
     }
 
+    void StageOjbOff()
+    {
+        ingameStageOjb.SetActive(false);
+    }
+
+    void StageOjbOn()
+    {
+        ingameStageOjb.SetActive(true);
+    }
+
+    void LinesOn()
+    {
+        dataConteiner.lines.gameObject.SetActive(true);
+    }
+
+    void LinesOff()
+    {
+        dataConteiner.lines.gameObject.SetActive(false);
+    }
+
+    void StageClear()
+    {
+        clearResult = true;
+    }
 
     public void ExitStageData()
     {
@@ -35,10 +64,13 @@ public class IngameManager : MonoBehaviour
         battleFieldController.StageEnter();
     }
 
+
+
     private void OnDisable()
     {
-        dataConteiner.turnCount++;
-        Debug.Log("인게임 나갈때 턴값 : " + dataConteiner.turnCount);
+        dataConteiner.TrunCountPlus(clearResult); // 내부에서 턴 값을 1만큼 올려줌
+        StageOjbOn();
+        LinesOn();
         ExitStageData();
     }
 }

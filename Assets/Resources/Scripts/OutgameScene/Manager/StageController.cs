@@ -2,7 +2,6 @@ using Radishmouse;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,12 +12,12 @@ public class StageController : MonoBehaviour
     public LineRenderer lineRenderer;
 
     public List<GameObject> stageObjList;
-    public GameObject Lines;
 
     public List<List<Stage>> battleList = new List<List<Stage>>();
     public Stage currentStage;
     public GameObject plent;
     public GameObject stageOjbs;
+    public GameObject Lines;
     public Material ClearMataral;
     public Material DafaultMataral;
     public Stage currentSelectStage;
@@ -38,6 +37,16 @@ public class StageController : MonoBehaviour
     private void Start()
     {
         lineRenderer.gameObject.SetActive(true);
+    }
+
+    public void InitCurrentSelectStage(Stage _currentstage)
+    {
+        currentSelectStage = _currentstage;
+    }
+
+    public void StageMatarialsChange(Stage stage)
+    {
+        stage.GetComponent<MeshRenderer>().material = ClearMataral;
     }
 
     public void InitTurnCount(int _turnCount)
@@ -66,12 +75,12 @@ public class StageController : MonoBehaviour
         else
         {
             Debug.Log("스테이지 컨트롤러의 턴 카운트 : " + turnCount);
-            GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount - 2).transform.GetChild(address).GetComponent<Stage>().stageClearInfo = true;
-            for (int i = 0; i < GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount - 2).transform.childCount; i++)
+            GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(address).GetComponent<Stage>().stageClearInfo = true;
+            for (int i = 0; i < GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.childCount; i++)
             {
-                if (GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount - 2).transform.GetChild(i).GetComponent<Stage>().stageClearInfo == false )
+                if (GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(i).GetComponent<Stage>().stageClearInfo == false )
                 {
-                    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount - 2).transform.GetChild(i).GetComponent<MeshRenderer>().material = DafaultMataral;
+                    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(i).GetComponent<MeshRenderer>().material = DafaultMataral;
                 }
             }
         }
@@ -194,14 +203,6 @@ public class StageController : MonoBehaviour
             }
         }
         return stage;
-    }
-
-    public void TestDebug()
-    {
-        var tempint = inpufield.text;
-        Debug.Log(battleList[int.Parse(tempint)]);
-
-        selectnum = int.Parse(tempint);
     }
 
     public void CechkStage()

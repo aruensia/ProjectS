@@ -14,6 +14,7 @@ public class OutgameManager : MonoBehaviour
     public BuffController buffController;
     public CardController cardController;
     public StageController stageController;
+    DataConteiner dataConteiner;
     public PlayerData playerdata;
     public Player player;
     public Vector3 startPos;
@@ -35,6 +36,7 @@ public class OutgameManager : MonoBehaviour
         stageController = gameController.GetComponent<StageController>();
         buffController = gameController.GetComponent<BuffController>();
         cardController = gameController.GetComponent<CardController>();
+        dataConteiner = GameDirector.Instance.dataConteiner.ConteinerToSend();
         GameDirector.Instance.InitOutgameManager(this);
     }
 
@@ -43,6 +45,7 @@ public class OutgameManager : MonoBehaviour
         CheckStageCount();
         OnStageSettingMethod();
         OnPlantSetting();
+        
         cardController.Init(userDeck, discradDeck);
         startPos = new Vector3(-8.64f, 0.75f, 0.2f);
         player = GameDirector.Instance.player;
@@ -61,6 +64,7 @@ public class OutgameManager : MonoBehaviour
             stageController.OnMatariaisSetting();
             GameDirector.Instance.stageSettingIsComplete = true;
             GameDirector.Instance.dataConteiner.InitStageObj(stageController.stageOjbs);
+            GameDirector.Instance.dataConteiner.InitLines(stageController.Lines);
             stageController.stageOjbs.transform.SetParent(GameDirector.Instance.transform);
 
         }
@@ -76,6 +80,7 @@ public class OutgameManager : MonoBehaviour
         else
         {
             stageController.EndPlantSetting(stageAddress);
+            //stageController.StageMatarialsChange(dataConteiner.currentSelectStage);
         }
     }
 
@@ -87,17 +92,13 @@ public class OutgameManager : MonoBehaviour
         }
         else
         {
-            turnCount = GameDirector.Instance.dataConteiner.turnCount;
-
             if ( turnCount == 1)
             {
 
             }
             else
             {
-                stageAddress = GameDirector.Instance.dataConteiner.stageAddressNumber;
-                Debug.Log("턴 : " + turnCount);
-                Debug.Log("스테이지 : " + stageAddress);
+                stageAddress = dataConteiner.StageAddresNumber;
             }
         }
     }

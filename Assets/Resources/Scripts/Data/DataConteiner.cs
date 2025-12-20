@@ -5,11 +5,17 @@ using UnityEngine;
 public class DataConteiner : MonoBehaviour
 {
     public bool stageClearInfo = false;
-    public int stageAddressNumber;
+    int stageAddressNumber;
     public Player playerConteiner;
-    public int turnCount = 0;
+    int turnCount = 0;
     public GameObject stageObj;
+    public GameObject lines;
     public Stage currentSelectStage;
+
+    public int StageAddresNumber { get; }
+    public int TurnCount { get; }
+
+
 
     public void DataInitForConteiner(Player player, int _turnCount, int _stageAddressNumber)
     {
@@ -18,8 +24,28 @@ public class DataConteiner : MonoBehaviour
         stageAddressNumber = _stageAddressNumber;
     }
 
+    public void TrunCountPlus(bool stageClearResult)
+    {
+        if(stageClearResult == true)
+        {
+            turnCount = turnCount + 1;
+        }
+    }
+
     public void InitStageObj(GameObject _stageobj)
     {
         stageObj = _stageobj;
     }
+
+    public void InitLines(GameObject _lines)
+    {
+        lines = _lines;
+    }
+
+    public DataConteiner ConteinerToSend()
+    {
+        return this;
+    }
 }
+
+
