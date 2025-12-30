@@ -61,39 +61,68 @@ public class StageController : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
-                GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(i).transform.GetChild(j).GetComponent<Stage>().stageEnterValue = true;
+                GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(j).GetComponent<Stage>().stageEnterValue = true;
             }
         }
     }
 
+    //턴이 끝나고 왔을때를 상정하여 -1 값을 받음
     public void EndPlantSetting(int address)
     {
-        if (turnCount == 1)
+        if (turnCount == 0)
         {
 
         }
         else
         {
-            Debug.Log("스테이지 컨트롤러의 턴 카운트 : " + turnCount);
-            GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(address).GetComponent<Stage>().stageClearInfo = true;
+            GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount-1).transform.GetChild(address).GetComponent<Stage>().stageClearInfo = true;
+
             for (int i = 0; i < GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.childCount; i++)
             {
-                if (GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(i).GetComponent<Stage>().stageClearInfo == false )
+                if (GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount-1).transform.GetChild(i).GetComponent<Stage>().stageClearInfo == false )
                 {
-                    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(i).GetComponent<MeshRenderer>().material = DafaultMataral;
+                    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount-1).transform.GetChild(i).GetComponent<MeshRenderer>().material = DafaultMataral;
+                    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount-1).transform.GetChild(i).GetComponent<Stage>().stageEnterValue = false;
                 }
             }
+
+            //for (int i = 0; i < GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.childCount; i++)
+            //{
+            //    if (GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount-1).transform.GetChild(i).GetComponent<Stage>().nextStage.Count <= 1)
+            //    {
+            //        //GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(i).GetComponent<MeshRenderer>().material = ClearMataral;
+            //    }
+            //}
         }
     }
 
-    public void OnMatariaisSetting()
+    public void OnMatariaisSetting(int address)
     {
-        for( int i = 0; i < turnCount; i++ )
+        for( int i = 0; i < 1; i++ )
         {
-            for(int j = 0; j < 3; j++ )
+            if(turnCount != 0)
             {
-                stageObjList[i].transform.GetChild(j).GetComponent<MeshRenderer>().material = ClearMataral;
+                Debug.Log("이전 턴 의 값은 : " + (turnCount - 1) + " 주소값은 : " + address);
+
+
+                for( int j = 0; j < GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount-1).transform.GetChild(address).GetComponent<Stage>().nextStage.Count; j++ )
+                {
+                    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(j).GetComponent<MeshRenderer>().material = ClearMataral;
+                }
             }
+            else
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(j).GetComponent<MeshRenderer>().material = ClearMataral;
+                }
+            }
+
+
+            //for (int j = 0; j < 3; j++)
+            //{
+            //    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(j).GetComponent<MeshRenderer>().material = ClearMataral;
+            //}
         }
     }
 
@@ -312,7 +341,7 @@ public class StageController : MonoBehaviour
     {
         if(stage.stageClearInfo == false)
         {
-            GameDirector.Instance.dataConteiner.currentSelectStage = stage;
+            currentSelectStage = stage;
             OpenStage(stage);
             SceneManager.LoadScene("InGame");
         }

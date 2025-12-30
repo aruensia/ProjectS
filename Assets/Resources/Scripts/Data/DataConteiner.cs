@@ -5,16 +5,15 @@ using UnityEngine;
 public class DataConteiner : MonoBehaviour
 {
     public bool stageClearInfo = false;
-    int stageAddressNumber;
+    [SerializeField] int stageAddressNumber;
     public Player playerConteiner;
-    int turnCount = 0;
+    [SerializeField] int turnCount = 0;
     public GameObject stageObj;
     public GameObject lines;
     public Stage currentSelectStage;
 
-    public int StageAddresNumber { get; }
-    public int TurnCount { get; }
-
+    public int StageAddresNumber { get => stageAddressNumber; }
+    public int TurnCount {  get =>  turnCount; }
 
 
     public void DataInitForConteiner(Player player, int _turnCount, int _stageAddressNumber)
@@ -29,6 +28,7 @@ public class DataConteiner : MonoBehaviour
         if(stageClearResult == true)
         {
             turnCount = turnCount + 1;
+            Debug.Log("데이터 컨테이너의 턴 카운트가 증가함 : " + this.turnCount);
         }
     }
 

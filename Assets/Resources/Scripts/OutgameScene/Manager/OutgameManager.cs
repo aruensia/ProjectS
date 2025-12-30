@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -42,8 +43,9 @@ public class OutgameManager : MonoBehaviour
 
     private void Start()
     {
+        GetTurnCountForDataConteiner();
         CheckStageCount();
-        OnStageSettingMethod();
+        PlantAndStageSetting();
         OnPlantSetting();
         
         cardController.Init(userDeck, discradDeck);
@@ -51,29 +53,34 @@ public class OutgameManager : MonoBehaviour
         player = GameDirector.Instance.player;
         
         SetupPlayerSihp();
-        Debug.Log(player.playerData);
     }
 
-    void OnStageSettingMethod()
+    void PlantAndStageSetting()
     {
         stageController.InitTurnCount(turnCount);
         if(GameDirector.Instance.stageSettingIsComplete == false)
         {
             stageController.InstantiatePlent();
             stageController.InitStageSetting();
-            stageController.OnMatariaisSetting();
             GameDirector.Instance.stageSettingIsComplete = true;
             GameDirector.Instance.dataConteiner.InitStageObj(stageController.stageOjbs);
             GameDirector.Instance.dataConteiner.InitLines(stageController.Lines);
             stageController.stageOjbs.transform.SetParent(GameDirector.Instance.transform);
+            stageController.EnterPlantSetting();
 
         }
-        stageController.EnterPlantSetting();
+        stageController.OnMatariaisSetting(stageAddress);
+    }
+
+    void GetTurnCountForDataConteiner()
+    {
+        turnCount = dataConteiner.TurnCount;
+        Debug.Log("시작 턴 확인 : " + turnCount);
     }
 
     void OnPlantSetting()
     {
-        if( turnCount == 1)
+        if( turnCount == 0)
         {
 
         }
@@ -92,7 +99,7 @@ public class OutgameManager : MonoBehaviour
         }
         else
         {
-            if ( turnCount == 1)
+            if ( turnCount == 0)
             {
 
             }
@@ -132,7 +139,6 @@ public class OutgameManager : MonoBehaviour
     public void SetupPlayerSihp()
     {
         player.transform.position = startPos;
-        Debug.Log(player.transform.position);
     }
 
     public void StageEnter(Stage stage)

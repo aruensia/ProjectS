@@ -64,10 +64,9 @@ public class IngameManager : MonoBehaviour
         battleFieldController.StageEnter();
     }
 
-
-
     private void OnDisable()
     {
+        StageClear();
         dataConteiner.TrunCountPlus(clearResult); // 내부에서 턴 값을 1만큼 올려줌
         StageOjbOn();
         LinesOn();

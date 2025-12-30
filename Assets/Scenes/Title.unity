@@ -207,7 +207,10 @@ MonoBehaviour:
   stageClearInfo: 0
   stageAddressNumber: 0
   playerConteiner: {fileID: 0}
-  turnCount: 1
+  turnCount: 0
+  stageObj: {fileID: 0}
+  lines: {fileID: 0}
+  currentSelectStage: {fileID: 0}
 --- !u!1 &20224190
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +405,7 @@ MonoBehaviour:
   inputController: {fileID: 0}
   dataConteiner: {fileID: 8444169}
   player: {fileID: 1896107925}
+  stageSettingIsComplete: 0
 --- !u!4 &113068552
 Transform:
   m_ObjectHideFlags: 0
