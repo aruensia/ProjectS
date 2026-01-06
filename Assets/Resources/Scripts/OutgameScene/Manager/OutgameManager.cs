@@ -143,7 +143,7 @@ public class OutgameManager : MonoBehaviour
 
     public void StageEnter(Stage stage)
     {
-        GameDirector.Instance.dataConteiner.DataInitForConteiner(player,turnCount, stage.stageAddressNumber);
+        GameDirector.Instance.dataConteiner.DataInitForConteiner(player,turnCount, stage.stageAddressNumber, stage);
         stageController.StageMove(stage);
     }
 

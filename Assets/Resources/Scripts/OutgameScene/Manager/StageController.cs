@@ -107,7 +107,7 @@ public class StageController : MonoBehaviour
 
                 for( int j = 0; j < GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount-1).transform.GetChild(address).GetComponent<Stage>().nextStage.Count; j++ )
                 {
-                    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(j).GetComponent<MeshRenderer>().material = ClearMataral;
+                    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount - 1).transform.GetChild(address).GetComponent<Stage>().nextStage[j].transform.GetComponent<MeshRenderer>().material = ClearMataral;
                 }
             }
             else

@@ -16,11 +16,12 @@ public class DataConteiner : MonoBehaviour
     public int TurnCount {  get =>  turnCount; }
 
 
-    public void DataInitForConteiner(Player player, int _turnCount, int _stageAddressNumber)
+    public void DataInitForConteiner(Player player, int _turnCount, int _stageAddressNumber, Stage _stage)
     {
         playerConteiner = player;
         turnCount = _turnCount;
         stageAddressNumber = _stageAddressNumber;
+        currentSelectStage = _stage;
     }
 
     public void TrunCountPlus(bool stageClearResult)

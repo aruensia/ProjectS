@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum StageType
 {
-    normal, shop, talk, elite, boss, end
+    normal, elite, shop, talk, boss, end
     // normal:일반 전투, Shop: 상점, talk: 대화, elite: 정예, boss: 보스, end: 종료
 }
 
