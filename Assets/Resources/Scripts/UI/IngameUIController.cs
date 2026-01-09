@@ -16,7 +16,6 @@ public class IngameUIController : MonoBehaviour
     public GameObject cardPosObj;
     public GameObject canvers;
 
-    // Start is called before the first frame update
     void Start()
     {
         drowCardDefaultPos = cardPosObj.transform.position;

@@ -6,11 +6,12 @@ using UnityEngine.UI;
 
 public class IngameManager : MonoBehaviour
 {
+
     DataConteiner dataConteiner;
     BattleFieldController battleFieldController;
+    IngameUIController ingameUIController;
     public Button stageExitBtn;
     public GameObject ingameStageOjb;
-    int turnCount;
     bool clearResult;
     [SerializeField] Stage stage;
 
@@ -27,9 +28,9 @@ public class IngameManager : MonoBehaviour
 
     private void Start()
     {
-        turnCount = dataConteiner.TurnCount;
         ingameStageOjb = dataConteiner.stageObj;
         stage = dataConteiner.currentSelectStage;
+        battleFieldController.GetIngameUIController(ingameUIController);
         StageOjbOff();
         LinesOff();
         StageEvent();

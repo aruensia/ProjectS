@@ -22,7 +22,7 @@ public class OutgameManager : MonoBehaviour
     public GameObject playerGameObj;
     public GameObject stageObj;
 
-    public int turnCount; //턴 카운트
+    public int stageCount; //턴 카운트
     public int stageAddress;
 
     public bool stageSettingIsComplete = false;
@@ -57,7 +57,7 @@ public class OutgameManager : MonoBehaviour
 
     void PlantAndStageSetting()
     {
-        stageController.InitTurnCount(turnCount);
+        stageController.InitTurnCount(stageCount);
         if(GameDirector.Instance.stageSettingIsComplete == false)
         {
             stageController.InstantiatePlent();
@@ -74,13 +74,13 @@ public class OutgameManager : MonoBehaviour
 
     void GetTurnCountForDataConteiner()
     {
-        turnCount = dataConteiner.TurnCount;
-        Debug.Log("시작 턴 확인 : " + turnCount);
+        stageCount = dataConteiner.TurnCount;
+        Debug.Log("시작 턴 확인 : " + stageCount);
     }
 
     void OnPlantSetting()
     {
-        if( turnCount == 0)
+        if( stageCount == 0)
         {
 
         }
@@ -93,13 +93,13 @@ public class OutgameManager : MonoBehaviour
 
     void CheckStageCount()
     {
-        if (turnCount >= 10)
+        if (stageCount >= 10)
         {
-            turnCount = 10;
+            stageCount = 10;
         }
         else
         {
-            if ( turnCount == 0)
+            if ( stageCount == 0)
             {
 
             }
@@ -143,7 +143,7 @@ public class OutgameManager : MonoBehaviour
 
     public void StageEnter(Stage stage)
     {
-        GameDirector.Instance.dataConteiner.DataInitForConteiner(player,turnCount, stage.stageAddressNumber, stage);
+        GameDirector.Instance.dataConteiner.DataInitForConteiner(player,stageCount, stage.stageAddressNumber, stage);
         stageController.StageMove(stage);
     }
 

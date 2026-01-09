@@ -86,11 +86,11 @@ public class StageController : MonoBehaviour
                 }
             }
 
-            //for (int i = 0; i < GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.childCount; i++)
+            //for (int i = 0; i < GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(stageCount).transform.childCount; i++)
             //{
-            //    if (GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount-1).transform.GetChild(i).GetComponent<Stage>().nextStage.Count <= 1)
+            //    if (GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(stageCount-1).transform.GetChild(i).GetComponent<Stage>().nextStage.Count <= 1)
             //    {
-            //        //GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(i).GetComponent<MeshRenderer>().material = ClearMataral;
+            //        //GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(stageCount).transform.GetChild(i).GetComponent<MeshRenderer>().material = ClearMataral;
             //    }
             //}
         }
@@ -121,7 +121,7 @@ public class StageController : MonoBehaviour
 
             //for (int j = 0; j < 3; j++)
             //{
-            //    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(turnCount).transform.GetChild(j).GetComponent<MeshRenderer>().material = ClearMataral;
+            //    GameDirector.Instance.dataConteiner.stageObj.transform.GetChild(stageCount).transform.GetChild(j).GetComponent<MeshRenderer>().material = ClearMataral;
             //}
         }
     }
