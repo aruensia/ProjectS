@@ -1,21 +1,20 @@
-using ISubInterface;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public enum CardType
+public class Card : MonoBehaviour
 {
-    ship, skill, item, curse
-}
+    CardData cardData = new CardData();
 
-public class Card : IUseble
-{
-    public string name;
-    public CardType type;
-    public int cost;
+    public TextMeshProUGUI Cardname;
+    public TextMeshProUGUI CardCost;
+    public Image CardImage;
 
-    void IUseble.Use()
+    void Start()
     {
-        GameDirector.Instance.outgameManager.cardController.Discard(this);
+        
     }
+
 }

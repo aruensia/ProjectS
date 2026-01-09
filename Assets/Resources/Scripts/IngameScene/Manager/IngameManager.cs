@@ -22,6 +22,7 @@ public class IngameManager : MonoBehaviour
     {
         battleFieldController = GetComponent<BattleFieldController>();
         dataConteiner = GameDirector.Instance.dataConteiner;
+        player = GameDirector.Instance.player;
     }
 
     private void Start()

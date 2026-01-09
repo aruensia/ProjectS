@@ -27,10 +27,10 @@ public class OutgameManager : MonoBehaviour
 
     public bool stageSettingIsComplete = false;
 
-    public List<Card> userDeck = new List<Card>();  // »ÌÀ» Ä«µåµ¦
-    public List<Card> discradDeck = new List<Card>();  // ¹ö¸° Ä«µåµ¦
+    public List<CardData> userDeck = new List<CardData>();  // »ÌÀ» Ä«µåµ¦
+    public List<CardData> discradDeck = new List<CardData>();  // ¹ö¸° Ä«µåµ¦
 
-    public List<Card> userHand = new List<Card>();
+    public List<CardData> userHand = new List<CardData>();
 
     private void Awake()
     {

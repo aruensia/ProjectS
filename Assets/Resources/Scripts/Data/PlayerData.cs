@@ -10,8 +10,8 @@ public class PlayerData
     public readonly int defaultDrawCount = 5; // 유저가 기본적으로 드로우하는 카드 개수;
     public int drawCount = 5;
 
-    public List<Card> userDeck;
-    public List<Card> userhand;
+    public List<CardData> userDeck;
+    public List<CardData> userhand;
     public int MaxHandSize;
     public int CardDrawCount;
     public List<Stage> currentUserInStageList = new List<Stage>();
