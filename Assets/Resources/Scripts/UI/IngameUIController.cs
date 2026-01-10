@@ -44,7 +44,7 @@ public class IngameUIController : MonoBehaviour
 
     }
 
-    public void TestDrowBtn()
+    public void OnDrowAction()
     {
         OnDrow.Invoke();
         var tempcard = Instantiate(CardPrefab, canvers.transform);

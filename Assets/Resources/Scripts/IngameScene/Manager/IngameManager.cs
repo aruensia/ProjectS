@@ -1,11 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum IngameStartStep
+{
+    Start, InitBuff, Drow, end
+}
+
 public class IngameManager : MonoBehaviour
 {
+    event Action OnFinishStep;
+
 
     DataConteiner dataConteiner;
     BattleFieldController battleFieldController;
@@ -14,6 +23,13 @@ public class IngameManager : MonoBehaviour
     public GameObject ingameStageOjb;
     bool clearResult;
     [SerializeField] Stage stage;
+
+
+    IngameStartStep startstep;
+    LinkedList<IngameStartStep> ingameStartState = new LinkedList<IngameStartStep>();
+    LinkedListNode<IngameStartStep> StateStep;
+
+    bool startStepComplete = false;
 
     public List<GameObject> IngameEventPrefabsList;
 
@@ -31,6 +47,9 @@ public class IngameManager : MonoBehaviour
         ingameStageOjb = dataConteiner.stageObj;
         stage = dataConteiner.currentSelectStage;
         battleFieldController.GetIngameUIController(ingameUIController);
+
+        OnFinishStep += NextStep;
+
         StageOjbOff();
         LinesOff();
         StageEvent();
@@ -70,6 +89,57 @@ public class IngameManager : MonoBehaviour
                 Debug.Log("보스");
                 break;
 
+        }
+    }
+
+    void InitLinkdListNode()
+    {
+        ingameStartState.AddFirst(IngameStartStep.Start);
+        ingameStartState.AddLast(IngameStartStep.InitBuff);
+        ingameStartState.AddLast(IngameStartStep.Drow);
+        ingameStartState.AddLast(IngameStartStep.end);
+    }
+
+    void StartStep()
+    {
+        StartStepAction(StateStep.Value);
+    }
+
+    void RestStep()
+    {
+        StateStep = ingameStartState.First;
+    }
+
+    void NextStep()
+    {
+        StateStep = StateStep.Next;
+        StartStepAction(StateStep.Value);
+    }
+
+
+    void StartStepAction(IngameStartStep step)
+    {
+        switch(step)
+        {
+            case IngameStartStep.Start:
+                Debug.Log("스타트 스탭 실행됌");
+                OnFinishStep.Invoke();
+                break;
+
+            case IngameStartStep.InitBuff:
+                Debug.Log("버프 스탭 실행됌");
+                OnFinishStep.Invoke();
+                break;
+
+            case IngameStartStep.Drow:
+                Debug.Log("드로우 스탭 실행됌");
+                OnFinishStep.Invoke();
+                break;
+
+            case IngameStartStep.end:
+                Debug.Log("종료 스탭 실행됌");
+                OnFinishStep.Invoke();
+                break;
         }
     }
 
@@ -115,6 +185,8 @@ public class IngameManager : MonoBehaviour
     {
         battleFieldController.StageEnter();
     }
+
+
 
     private void OnDisable()
     {

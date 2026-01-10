@@ -22,6 +22,7 @@ public class BattleFieldController : MonoBehaviour
 
     private void Start()
     {
+
         turnCount = dataConteiner.TurnCount;
     }
 
@@ -47,4 +48,5 @@ public class BattleFieldController : MonoBehaviour
     {
         SceneManager.LoadScene("OutGame");
     }
+
 }
