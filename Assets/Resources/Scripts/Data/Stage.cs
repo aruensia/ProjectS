@@ -18,6 +18,6 @@ public class Stage : MonoBehaviour
     public bool stageEnterValue = false;
     public int stageAddressNumber;
 
-    public Ship enemyship;
+    public ShipData enemyship;
 
 }

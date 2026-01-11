@@ -58,17 +58,17 @@ public class DrawBuff : Buff<PlayerData>
     }
 }
 
-public class HpBuff : Buff<Ship>
+public class HpBuff : Buff<ShipData>
 {
     public int buffvalue;
 
-    public override void Apply(Ship ship, int value)
+    public override void Apply(ShipData ship, int value)
     {
         buffvalue = value;
         ship.Hull = ship.Hull + buffvalue;
     }
 
-    public override void Clear(Ship ship, int value)
+    public override void Clear(ShipData ship, int value)
     {
         buffvalue = value;
         ship.Hull = ship.Hull - buffvalue;
@@ -77,7 +77,7 @@ public class HpBuff : Buff<Ship>
 
     public override void SetupBuff(object buffs)
     {
-        SetupBuff((Ship)buffs);
+        SetupBuff((ShipData)buffs);
     }
     public void SetupBuff(PlayerData player)
     {

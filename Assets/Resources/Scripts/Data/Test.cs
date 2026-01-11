@@ -5,25 +5,25 @@ using UnityEngine.UI;
 
 public class test : MonoBehaviour
 {
-    Dictionary<int,Ship> testdic = new Dictionary<int,Ship>();
+    Dictionary<int,ShipData> testdic = new Dictionary<int,ShipData>();
 
     public InputField costInit;
     public InputField keyInit;
     int idcount;
 
-    public Ship InitData(int cost)
+    public ShipData InitData(int cost)
     {
-        Ship userShip = new Ship();
+        ShipData userShip = new ShipData();
         userShip.cost = cost;
         idcount++;
-        userShip.id += idcount;
+        userShip.Index += idcount;
 
         return userShip;
     }
 
-    public void AddDicUserShip(Ship userShip)
+    public void AddDicUserShip(ShipData userShip)
     {
-        testdic.Add(userShip.id , userShip);
+        testdic.Add(userShip.Index , userShip);
         Debug.Log("데이터 넣음");
     }
     

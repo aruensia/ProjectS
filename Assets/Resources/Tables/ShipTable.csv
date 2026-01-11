@@ -1,0 +1,5 @@
+﻿Index,UnitType,Name,Armmor,Hull,Shield,Damage,AttackSpeed,AttackRange,MoveSpeed
+int,shipClass,string,int,int,int,int,float,float,float
+1100000,0,전투기,30,100,10,5,5,1,1
+1100001,1,구축함,200,300,60,5,4,1,1
+1100002,2,순양함,800,700,400,5,3,1,1

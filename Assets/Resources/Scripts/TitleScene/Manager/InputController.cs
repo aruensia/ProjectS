@@ -38,8 +38,8 @@ public class InputController : MonoBehaviour, IPointerClickHandler
         {
             switch (raycastHit.transform.tag)
             {
-                case "Ship":
-                    var Ship = raycastHit.transform.gameObject.GetComponent<Ship>();
+                case "ShipData":
+                    var Ship = raycastHit.transform.gameObject.GetComponent<ShipData>();
                     Debug.Log("ÇÔ¼±");
                     break;
 
